@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络安全 - 国家安全科普网</title>
+    <!-- 引入外部样式库 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- 引入Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- 自定义样式 -->
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #0a3d62; /* 主色调-深蓝（体现国家安全的严肃感） */
+            --secondary-color: #3c6382; /* 辅助色 */
+            --light-color: #f5f6fa; /* 浅色背景 */
+            --dark-color: #2c3e50; /* 深色文字 */
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        /* 导航栏样式 */
+        /* 导航栏样式 */
+        /* 导航栏样式 */
+        
+        .navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    white-space: nowrap; /* 禁止文字换行 */
+    font-size: 14px;     /* 缩小字体，节省空间 */
+    padding: 8px 10px;   /* 缩小左右内边距 */
+}
+
+.nav-link:hover {
+    color: #d1d8e0 !important;
+}
+
+/* 扩大导航栏容器最大宽度，让更多菜单项放下 */
+.navbar .container {
+    max-width: 1400px;
+}
+        /* 首页Banner */
+        .hero-section {
+            background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.9)), 
+                        url('https://picsum.photos/id/180/1920/1080') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* 通用板块样式 */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* 卡片样式 */
+        .card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        /* 威胁类型板块 */
+        .threat-item {
+            margin-bottom: 30px;
+        }
+        
+        .threat-item i {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* 防护措施板块 */
+        .protection-section {
+            background-color: var(--light-color);
+        }
+        
+        /* 法律法规板块 */
+        .law-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .law-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 18px;
+        }
+        
+        .law-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .law-list li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .law-list li a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        /* 案例板块样式 */
+        .case-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .case-item h5 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .case-item .badge {
+            background-color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* 宣传标语板块 */
+        .slogan-section {
+            background: linear-gradient(rgba(10, 61, 98, 0.9), rgba(10, 61, 98, 0.95)), 
+                        url('https://picsum.photos/id/104/1920/600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .slogan-item {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        /* 问答板块 */
+        .accordion-button {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        footer a {
+            color: #d1d8e0;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+
+        /* 新增样式 */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .level-item {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .level-item h6 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .response-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .response-step .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .tool-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tool-card i {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 36px;
+            }
+            
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .slogan-item {
+                font-size: 18px;
+            }
+
+            .response-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .response-step .step-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-shield-lock-fill me-2"></i>网络安全科普
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#overview">网络安全概述</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#threats">常见网络威胁</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#statistics">安全现状数据</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#protection">防护措施</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#level-protection">等级保护</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#emergency">应急响应</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#info-protection">个人信息保护</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tools">安全工具</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cases">安全案例</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#laws">法律法规</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#qa">常见问答</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#slogan">宣传标语</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Banner -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1>网络安全 守护国家安全</h1>
+            <p>网络安全是国家安全的重要组成部分，关乎国家主权、经济发展和人民利益。了解网络安全知识，提升防护意识，共同筑牢网络安全防线。</p>
+            <a href="#overview" class="btn btn-light btn-lg">了解更多</a>
+        </div>
+    </section>
+
+    <!-- 网络安全概述 -->
+    <section id="overview" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全概述</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>什么是网络安全？</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                网络安全是指通过采取必要措施，防范对网络的攻击、侵入、干扰、破坏和非法使用以及意外事故，使网络处于稳定可靠运行的状态，以及保障网络数据的完整性、保密性、可用性的能力。
+                            </p>
+                            <p class="card-text">
+                                广义上的网络安全包括网络设备安全、网络信息安全、网络软件安全，涵盖个人、企业、国家多个层面的安全防护。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-flag me-2"></i>网络安全的重要性</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                1. <strong>国家安全层面</strong>：网络空间成为大国博弈的新战场，网络安全直接关系国家主权和领土完整。
+                            </p>
+                            <p class="card-text">
+                                2. <strong>经济层面</strong>：防范网络攻击造成的经济损失，保护企业商业机密和公民财产安全。
+                            </p>
+                            <p class="card-text">
+                                3. <strong>社会层面</strong>：维护网络空间秩序，保障公民个人信息安全和正常的网络生活。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-book me-2"></i>网络安全的核心原则</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <h6>保密性 (Confidentiality)</h6>
+                                    <p>确保信息不被未授权的个人、实体访问或披露</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h6>完整性 (Integrity)</h6>
+                                    <p>保障信息在存储和传输过程中不被篡改、破坏</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h6>可用性 (Availability)</h6>
+                                    <p>确保授权用户在需要时能够访问和使用信息</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见网络威胁 -->
+    <section id="threats" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见网络威胁</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 threat-item text-center">
+                    <i class="bi bi-virus"></i>
+                    <h4>恶意软件</h4>
+                    <p>包括病毒、木马、蠕虫、勒索软件等，通过各种途径侵入设备，窃取信息或破坏系统。</p>
+                </div>
+                <div class="col-md-4 threat-item text-center">
+                    <i class="bi bi-person-badge"></i>
+                    <h4>钓鱼攻击</h4>
+                    <p>伪装成可信机构或个人，通过邮件、短信、网站等方式诱导用户泄露账号、密码等敏感信息。</p>
+                </div>
+                <div class="col-md-4 threat-item text-center">
+                    <i class="bi bi-shield-slash"></i>
+                    <h4>黑客攻击</h4>
+                    <p>利用系统漏洞非法侵入网络系统，窃取数据、篡改信息或发起拒绝服务攻击。</p>
+                </div>
+                <div class="col-md-4 threat-item text-center">
+                    <i class="bi bi-wifi-off"></i>
+                    <h4>无线网络攻击</h4>
+                    <p>通过破解WiFi密码、搭建钓鱼WiFi等方式，监听用户网络通信，窃取敏感信息。</p>
+                </div>
+                <div class="col-md-4 threat-item text-center">
+                    <i class="bi bi-file-earmark-break"></i>
+                    <h4>数据泄露</h4>
+                    <p>因系统漏洞、人为操作失误或内部人员泄密，导致大量敏感数据被泄露。</p>
+                </div>
+                <div class="col-md-4 threat-item text-center">
+                    <i class="bi bi-people"></i>
+                    <h4>社会工程学攻击</h4>
+                    <p>利用人性弱点，通过欺骗、诱导等非技术手段获取敏感信息或权限。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：网络安全现状数据 -->
+    <section id="statistics" class="section protection-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全现状数据</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-bar-chart me-2"></i>2025年网络攻击类型分布</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="attackTypeChart"></canvas>
+                            </div>
+                            <p class="text-muted text-center mt-2">数据来源：国家网络安全监测中心2025年度报告</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-line-chart me-2"></i>近五年网络安全事件增长趋势</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="incidentTrendChart"></canvas>
+                            </div>
+                            <p class="text-muted text-center mt-2">单位：万起 | 数据来源：国家互联网应急中心</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>关键数据解读</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <h4 class="text-primary">82%</h4>
+                                        <p class="mb-0">企业遭受的网络攻击源于自身系统漏洞</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <h4 class="text-primary">68%</h4>
+                                        <p class="mb-0">个人信息泄露源于弱密码或重复使用密码</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <h4 class="text-primary">95%</h4>
+                                        <p class="mb-0">钓鱼攻击通过电子邮件和短信传播</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <p>• 勒索软件攻击造成的平均损失较去年增长35%，攻击目标从企业向政府机构、医疗机构延伸</p>
+                            <p>• 境外网络攻击占比达68%，主要针对我国关键信息基础设施和高新技术企业</p>
+                            <p>• 移动端安全事件增长最快，占总体安全事件的42%，主要集中在安卓平台</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 防护措施 -->
+    <section id="protection" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全防护措施</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-person me-2"></i>个人层面防护</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title"><i class="bi bi-key me-2"></i>账号密码安全</h6>
+                            <ul>
+                                <li>使用复杂密码，包含大小写字母、数字和特殊符号</li>
+                                <li>不同平台使用不同密码，定期更换</li>
+                                <li>开启双因素认证，提升账号安全性</li>
+                                <li>不随意分享账号密码，不记录在易泄露的位置</li>
+                            </ul>
+                            <h6 class="card-title mt-3"><i class="bi bi-shield-check me-2"></i>设备与网络安全</h6>
+                            <ul>
+                                <li>安装正规杀毒软件，定期更新病毒库</li>
+                                <li>及时更新操作系统和应用软件补丁</li>
+                                <li>不连接未知的公共WiFi，避免敏感操作</li>
+                                <li>重要数据定期备份，防止数据丢失</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-building me-2"></i>企业/国家层面防护</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title"><i class="bi bi-server me-2"></i>技术防护体系</h6>
+                            <ul>
+                                <li>部署防火墙、入侵检测系统(IDS)、入侵防御系统(IPS)</li>
+                                <li>建立数据加密机制，对敏感数据进行加密存储和传输</li>
+                                <li>实施网络隔离，划分不同安全等级的网络区域</li>
+                                <li>建立安全监控体系，实时监测网络异常行为</li>
+                            </ul>
+                            <h6 class="card-title mt-3"><i class="bi bi-clipboard-check me-2"></i>管理防护体系</h6>
+                            <ul>
+                                <li>制定完善的网络安全管理制度和应急预案</li>
+                                <li>定期开展网络安全培训和应急演练</li>
+                                <li>落实网络安全责任制，明确各级人员职责</li>
+                                <li>加强供应链安全管理，防范第三方风险</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：网络安全等级保护 -->
+    <section id="level-protection" class="section protection-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全等级保护</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-shield-halved me-2"></i>等级保护2.0标准</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-4">网络安全等级保护是我国网络安全领域的基本制度，等级保护2.0标准将保护对象从传统信息系统扩展到云计算、大数据、物联网、工业控制系统等新领域。</p>
+                            
+                            <div class="level-item">
+                                <h6>第一级（自主保护级）</h6>
+                                <p>适用于一般信息系统，受到破坏后，会对公民、法人和其他组织的合法权益造成损害，但不损害国家安全、社会秩序和公共利益。例如：小型企业网站、个人信息系统。</p>
+                            </div>
+                            
+                            <div class="level-item">
+                                <h6>第二级（指导保护级）</h6>
+                                <p>适用于重要信息系统，受到破坏后，会对公民、法人和其他组织的合法权益产生严重损害，或者对社会秩序和公共利益造成损害，但不损害国家安全。例如：中小型企业业务系统、普通政务系统。</p>
+                            </div>
+                            
+                            <div class="level-item">
+                                <h6>第三级（监督保护级）</h6>
+                                <p>适用于重要信息系统，受到破坏后，会对社会秩序和公共利益造成严重损害，或者对国家安全造成损害。例如：大型企业核心业务系统、重要政务系统、能源交通等关键行业的一般系统。</p>
+                            </div>
+                            
+                            <div class="level-item">
+                                <h6>第四级（强制保护级）</h6>
+                                <p>适用于特别重要信息系统，受到破坏后，会对社会秩序和公共利益造成特别严重损害，或者对国家安全造成严重损害。例如：国家重要部门的核心系统、关键信息基础设施的核心系统。</p>
+                            </div>
+                            
+                            <div class="level-item">
+                                <h6>第五级（专控保护级）</h6>
+                                <p>适用于极其重要信息系统，受到破坏后，会对国家安全造成特别严重损害。例如：国家核心机密系统、国防关键系统。</p>
+                            </div>
+                            
+                            <div class="mt-4 p-3 bg-light rounded">
+                                <h6 class="text-primary"><i class="bi bi-info-circle me-2"></i>等级保护实施流程</h6>
+                                <p class="mb-0">定级备案 → 差距分析 → 安全建设整改 → 等级测评 → 监督检查（每年至少一次测评）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：网络安全应急响应 -->
+    <section id="emergency" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全应急响应</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-gear-wide-connected me-2"></i>应急响应流程</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="response-step">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <h6>准备阶段</h6>
+                                    <p class="mb-0">制定应急预案、建立应急响应团队、准备应急工具和资源、定期进行应急演练</p>
+                                </div>
+                            </div>
+                            
+                            <div class="response-step">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <h6>检测阶段</h6>
+                                    <p class="mb-0">发现安全事件、初步评估事件影响范围和严重程度、收集相关证据</p>
+                                </div>
+                            </div>
+                            
+                            <div class="response-step">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <h6>遏制阶段</h6>
+                                    <p class="mb-0">采取紧急措施阻止攻击扩散、隔离受影响系统、保护重要数据和系统</p>
+                                </div>
+                            </div>
+                            
+                            <div class="response-step">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <h6>根除阶段</h6>
+                                    <p class="mb-0">彻底清除攻击源、修复系统漏洞、恢复系统正常功能</p>
+                                </div>
+                            </div>
+                            
+                            <div class="response-step">
+                                <div class="step-number">5</div>
+                                <div>
+                                    <h6>恢复阶段</h6>
+                                    <p class="mb-0">分阶段恢复系统服务、验证系统安全性、监控系统运行状态</p>
+                                </div>
+                            </div>
+                            
+                            <div class="response-step">
+                                <div class="step-number">6</div>
+                                <div>
+                                    <h6>总结阶段</h6>
+                                    <p class="mb-0">分析事件原因、评估应急响应效果、完善应急预案和防护措施</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-telephone-fill me-2"></i>应急联系方式</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>国家网络安全应急响应中心</span>
+                                    <strong>010-12377</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>公安网络违法犯罪举报</span>
+                                    <strong>010-65283344</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>反诈劝阻专线</span>
+                                    <strong>96110</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>消费者投诉举报专线</span>
+                                    <strong>12315</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>工信部电信用户申诉</span>
+                                    <strong>12300</strong>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <h6 class="text-primary"><i class="bi bi-exclamation-circle me-2"></i>应急响应注意事项</h6>
+                                <ul class="mt-2">
+                                    <li>发生重大网络安全事件，应立即上报并保留相关证据</li>
+                                    <li>切勿随意删除日志文件，这是溯源和取证的重要依据</li>
+                                    <li>恢复系统前必须确保攻击源已被彻底清除</li>
+                                    <li>涉及国家安全的网络攻击事件，必须向国家安全机关报告</li>
+                                    <li>建立7×24小时应急响应机制，确保及时处置安全事件</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：个人信息保护指南 -->
+    <section id="info-protection" class="section protection-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>个人信息保护指南</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-phone me-2"></i>移动设备保护</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>仅从官方应用商店下载APP</li>
+                                <li>关闭不必要的应用权限（如位置、通讯录）</li>
+                                <li>开启手机锁屏密码和生物识别</li>
+                                <li>定期清理不常用的应用程序</li>
+                                <li>开启手机查找和远程擦除功能</li>
+                                <li>不随意连接公共充电设备</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-envelope me-2"></i>社交与通信保护</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>不随意添加陌生人为好友</li>
+                                <li>不在社交平台泄露个人敏感信息</li>
+                                <li>谨慎设置朋友圈/动态的可见范围</li>
+                                <li>不点击短信/邮件中的可疑链接</li>
+                                <li>使用隐私保护工具隐藏真实号码</li>
+                                <li>警惕冒充熟人的诈骗信息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-shopping-cart me-2"></i>支付与消费保护</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>设置支付限额和交易提醒</li>
+                                <li>使用银行提供的安全支付工具</li>
+                                <li>不保存银行卡密码和验证码</li>
+                                <li>定期检查支付账户交易记录</li>
+                                <li>公共场合避免输入支付密码</li>
+                                <li>谨慎使用第三方支付授权</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-file-text me-2"></i>个人信息泄露补救措施</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="text-primary">立即措施</h6>
+                                    <ol>
+                                        <li>修改所有相关账号的密码</li>
+                                        <li>冻结银行卡、支付账户等资金账户</li>
+                                        <li>联系相关平台客服，要求下架泄露信息</li>
+                                        <li>向公安机关报案（金额较大时）</li>
+                                        <li>开启所有账号的安全验证功能</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="text-primary">长期措施</h6>
+                                    <ol>
+                                        <li>定期查询个人征信报告</li>
+                                        <li>关注是否有异常的信贷记录</li>
+                                        <li>向征信机构申请异议处理</li>
+                                        <li>更换重要账号的绑定手机号</li>
+                                        <li>建立个人信息保护清单</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：安全工具推荐 -->
+    <section id="tools" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常用网络安全工具</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card">
+                        <i class="bi bi-shield-check"></i>
+                        <h5 class="card-title">杀毒软件</h5>
+                        <p class="card-text">Windows Defender、360安全卫士、腾讯电脑管家、卡巴斯基、麦克菲</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card">
+                        <i class="bi bi-wifi"></i>
+                        <h5 class="card-title">网络安全工具</h5>
+                        <p class="card-text">Wireshark、Nmap、Metasploit、Burp Suite、SSL Labs、VPN</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card">
+                        <i class="bi bi-key"></i>
+                        <h5 class="card-title">密码管理工具</h5>
+                        <p class="card-text">1Password、LastPass、Bitwarden、KeePass、Dashlane</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card">
+                        <i class="bi bi-lock"></i>
+                        <h5 class="card-title">加密工具</h5>
+                        <p class="card-text">VeraCrypt、7-Zip、GPG、Signal、Telegram（秘密聊天）</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>工具使用建议</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>个人用户</h6>
+                                    <p>选择正规厂商的安全工具，避免使用来源不明的破解版软件。建议组合使用基础杀毒软件+密码管理器+VPN（公共网络环境），满足日常安全需求即可，无需安装过多安全工具。</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>企业用户</h6>
+                                    <p>建立统一的安全工具管理体系，定期更新工具版本和特征库。结合自身业务需求选择专业安全工具，同时建立工具使用规范和培训机制，确保员工正确使用安全工具。</p>
+                                </div>
+                            </div>
+                            <div class="mt-3 alert alert-warning">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                <strong>重要提醒：</strong>所有安全工具应从官方渠道下载，避免使用盗版或篡改版本，防止工具本身成为安全隐患。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 网络安全案例 -->
+    <section id="cases" class="section protection-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>典型网络安全事件案例</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="case-item">
+                        <span class="badge">数据泄露案例</span>
+                        <h5>某电商平台用户信息泄露事件</h5>
+                        <p>2023年，某知名电商平台因系统漏洞导致数千万用户的姓名、手机号、收货地址等信息泄露，部分信息被黑市交易，引发大量精准电信诈骗案件，造成用户财产损失超千万元。</p>
+                        <p><strong>警示：</strong>企业需加强系统安全检测，及时修复漏洞，对用户敏感信息进行加密处理。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="case-item">
+                        <span class="badge">勒索软件攻击</span>
+                        <h5>某医疗机构勒索病毒攻击事件</h5>
+                        <p>2022年，某市级医院信息系统遭受勒索软件攻击，核心业务系统瘫痪，大量患者病历数据被加密，攻击者索要比特币赎金。事件导致医院停诊3天，直接经济损失超500万元。</p>
+                        <p><strong>警示：</strong>关键信息基础设施单位需建立容灾备份系统，定期进行应急演练。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="case-item">
+                        <span class="badge">钓鱼攻击案例</span>
+                        <h5>冒充公检法电信诈骗案</h5>
+                        <p>2024年，犯罪团伙通过伪基站发送冒充公安机关的短信，诱导受害人点击钓鱼链接下载恶意APP，窃取银行卡信息，全国范围内造成数千人被骗，涉案金额超亿元。</p>
+                        <p><strong>警示：</strong>公检法机关绝不会通过短信、电话要求转账，切勿相信陌生链接。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="case-item">
+                        <span class="badge">国家网络安全</span>
+                        <h5>境外黑客攻击关键信息基础设施</h5>
+                        <p>某境外黑客组织针对我国能源、交通等关键信息基础设施发起网络攻击，试图窃取敏感数据、破坏系统运行。我国网络安全部门及时发现并阻断攻击，避免了重大损失。</p>
+                        <p><strong>警示：</strong>国家关键信息基础设施安全关乎国计民生，需构建全方位防护体系。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 法律法规 -->
+    <section id="laws" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全相关法律法规</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="law-list">
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="https://www.ghxrd.gov.cn/zlk_0/zcfg/202511/t20251110_229733.html" target="_blank">《中华人民共和国网络安全法》</a>
+                                </li>
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="http://www.npc.gov.cn/c2/c30834/202106/t20210610_311888.html" target="_blank">《中华人民共和国数据安全法》</a>
+                                </li>
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="http://www.npc.gov.cn/npc/c2/c30834/202108/t20210820_313088.html" target="_blank">《中华人民共和国个人信息保护法》</a>
+                                </li>
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="https://www.gov.cn/zhengce/2015-07/01/content_2893902.htm" target="_blank">《中华人民共和国国家安全法》</a>
+                                </li>
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="https://flk.npc.gov.cn/detail?id=ff80818182cf5c220182fd54401023d6&title=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8F%8D%E7%94%B5%E4%BF%A1%E7%BD%91%E7%BB%9C%E8%AF%88%E9%AA%97%E6%B3%95" target="_blank">《中华人民共和国反电信网络诈骗法》</a>
+                                </li>
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="https://www.gov.cn/gongbao/content/2021/content_5636138.htm" target="_blank">《关键信息基础设施安全保护条例》</a>
+                                </li>
+                                <li><i class="bi bi-file-earmark-text"></i>
+                                    <a href="https://www.gov.cn/zhengce/zhengceku/202409/content_6977767.htm" target="_blank">《网络数据安全管理条例》</a>
+                                </li>
+                            </ul>
+                            <div class="mt-4">
+                                <p class="text-muted">
+                                    这些法律法规构建了我国网络安全的基本框架，明确了网络运营者、使用者的权利和义务，为维护网络安全提供了法律保障。点击法规名称可查看官方全文。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问答 -->
+    <section id="qa" class="section protection-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>网络安全常见问答</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Q1: 收到陌生的中奖短信应该怎么办？
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    首先不要相信此类信息，这大概率是诈骗短信。不要点击短信中的链接，不要回复短信，不要泄露任何个人信息。可以直接删除短信，或向运营商举报该号码，必要时拨打110报警。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Q2: 如何判断一个WiFi是否安全？
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    1. 确认WiFi名称是否为官方认证的名称，警惕仿冒名称；2. 正规公共WiFi通常需要验证或密码，无密码的免费WiFi风险高；3. 避免在公共WiFi下进行网银、支付等敏感操作；4. 可通过安全软件检测WiFi是否存在风险。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Q3: 发现个人信息被泄露应该怎么做？
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    1. 立即修改相关账号密码；2. 联系泄露信息的平台，要求其采取补救措施；3. 收集相关证据，必要时向网信部门、公安机关投诉或报案；4. 关注银行卡、支付账户等资金安全，必要时冻结账户；5. 定期查询个人征信报告，防止被冒用身份。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Q4: 普通公民如何为国家网络安全做贡献？
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    1. 提升自身网络安全意识，做好个人防护；2. 不传播有害信息，不参与网络攻击活动；3. 发现网络安全漏洞、违法违规行为及时向相关部门举报；4. 积极学习网络安全知识，向身边人普及网络安全常识；5. 遵守网络安全相关法律法规，做守法的网络使用者。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Q5: 什么是关键信息基础设施？包含哪些领域？
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    关键信息基础设施是指公共通信和信息服务、能源、交通、水利、金融、公共服务、电子政务、国防科技工业等重要行业和领域的，以及其他一旦遭到破坏、丧失功能或者数据泄露，可能严重危害国家安全、国计民生、公共利益的网络设施和信息系统。这些设施直接关系国家经济安全和社会稳定，是网络安全防护的重中之重。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Q6: 遇到网络攻击或网络违法犯罪行为该向哪里举报？
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    1. 网络违法犯罪举报：登录<a href="https://www.cyberpolice.cn" target="_blank">网络违法犯罪举报网站</a>或拨打110；2. 不良信息举报：登录<a href="https://www.12377.cn" target="_blank">12377网络违法和不良信息举报中心</a>；3. 电信诈骗举报：拨打96110反诈专线；4. 个人信息保护投诉：拨打12315或向网信部门投诉。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 宣传标语 -->
+    <section id="slogan" class="section slogan-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">网络安全宣传标语</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="slogan-item">🔒 网络安全为人民，网络安全靠人民</div>
+                            <div class="slogan-item">🔒 筑牢网络安全防线，守护国家网络空间</div>
+                            <div class="slogan-item">🔒 增强网络安全意识，提高自我防护能力</div>
+                            <div class="slogan-item">🔒 网络安全始于心，安全网络践于行</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="slogan-item">🔒 守护网络安全，共筑国家安全屏障</div>
+                            <div class="slogan-item">🔒 规范网络行为，维护网络秩序</div>
+                            <div class="slogan-item">🔒 警惕网络陷阱，保护个人信息安全</div>
+                            <div class="slogan-item">🔒 共建网络安全，共享网络文明</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h5><i class="bi bi-shield-lock-fill me-2"></i>网络安全科普网</h5>
+                    <p>本网站旨在普及网络安全知识，提升全民网络安全意识，共同维护国家安全和网络空间秩序。</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <h5>官方举报/咨询渠道</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.cyberpolice.cn" target="_blank">网络违法犯罪举报网站</a></li>
+                        <li><a href="https://www.12377.cn" target="_blank">12377不良信息举报中心</a></li>
+                        <li><a href="https://www.mps.gov.cn" target="_blank">公安部网络安全保卫局</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2026 网络安全科普网 - 国家安全课程展示专用</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入JS库 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 平滑滚动脚本 -->
+    <script>
+        // 为导航链接添加平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 滚动时导航栏样式调整
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(10, 61, 98, 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'var(--primary-color)';
+            }
+        });
+
+        // 初始化图表
+        window.addEventListener('DOMContentLoaded', () => {
+            // 攻击类型分布图表
+            const attackTypeCtx = document.getElementById('attackTypeChart').getContext('2d');
+            new Chart(attackTypeCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['钓鱼攻击', '勒索软件', '数据泄露', 'DDoS攻击', '恶意软件', '其他攻击'],
+                    datasets: [{
+                        label: '攻击类型占比',
+                        data: [35, 22, 18, 10, 10, 5],
+                        backgroundColor: [
+                            '#0a3d62', '#3c6382', '#60a3bc', '#82ccdd', '#b8e994', '#f8c291'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+
+            // 安全事件趋势图表
+            const incidentTrendCtx = document.getElementById('incidentTrendChart').getContext('2d');
+            new Chart(incidentTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2021', '2022', '2023', '2024', '2025'],
+                    datasets: [{
+                        label: '网络安全事件数量（万起）',
+                        data: [86, 112, 145, 182, 215],
+                        fill: false,
+                        borderColor: '#0a3d62',
+                        tension: 0.1,
+                        pointBackgroundColor: '#3c6382'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '万起'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

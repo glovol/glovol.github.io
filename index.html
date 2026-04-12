@@ -330,6 +330,8 @@
                     <li class="nav-item"><a class="nav-link" href="#laws">法律法规</a></li>
                     <li class="nav-item"><a class="nav-link" href="#qa">常见问答</a></li>
                     <li class="nav-item"><a class="nav-link" href="#slogan">宣传标语</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">安全自测</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#future-trends">未来趋势</a></li>
                 </ul>
             </div>
         </div>
@@ -701,12 +703,8 @@
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>国家网络安全应急响应中心</span>
+                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>中央网信办违法和不良信息举报中心</span>
                                     <strong>010-12377</strong>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span><i class="bi bi-shield-fill me-2 text-primary"></i>公安网络违法犯罪举报</span>
-                                    <strong>010-65283344</strong>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <span><i class="bi bi-shield-fill me-2 text-primary"></i>反诈劝阻专线</span>
@@ -893,6 +891,162 @@
             </div>
         </div>
     </section>
+    <!-- 网络安全意识自测 -->
+<section id="quiz" class="section protection-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>网络安全意识小测</h2>
+            <p class="text-muted">测一测你的安全习惯能得多少分？</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-pencil-square me-2"></i>共5题，每题20分</h5>
+                    </div>
+                    <div class="card-body" id="quizContainer">
+                        <form id="securityQuiz">
+                            <div class="mb-4">
+                                <p><strong>1. 收到银行发来的短信，说您的账户异常需要点击链接验证，您会？</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" value="0">
+                                    <label class="form-check-label">立即点击链接处理</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" value="20">
+                                    <label class="form-check-label">不点击链接，直接拨打银行官方客服电话核实</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" value="0">
+                                    <label class="form-check-label">转发给朋友问问真假</label>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <p><strong>2. 以下哪个密码最安全？</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" value="0">
+                                    <label class="form-check-label">123456</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" value="0">
+                                    <label class="form-check-label">password</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" value="20">
+                                    <label class="form-check-label">Kj9#mP2$qL7@</label>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <p><strong>3. 在公共WiFi下，您会进行网银转账吗？</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" value="0">
+                                    <label class="form-check-label">会，方便快捷</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" value="20">
+                                    <label class="form-check-label">不会，使用自己的移动数据网络</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" value="0">
+                                    <label class="form-check-label">无所谓，有密码就行</label>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <p><strong>4. 收到“您的快递已滞留，请点击链接补全信息”的短信，正确做法是？</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" value="0">
+                                    <label class="form-check-label">直接点击链接查看</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" value="20">
+                                    <label class="form-check-label">先登录购物平台或联系快递公司官方客服确认</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" value="0">
+                                    <label class="form-check-label">忽略但也不删除</label>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <p><strong>5. 您会在多个网站使用完全相同的账号密码吗？</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" value="0">
+                                    <label class="form-check-label">会，方便记忆</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" value="20">
+                                    <label class="form-check-label">不会，每个平台使用不同密码，并用密码管理器记录</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" value="10">
+                                    <label class="form-check-label">偶尔相同，不重要的网站可以相同</label>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="submitQuiz">提交答案</button>
+                            <button type="reset" class="btn btn-secondary ms-2">重置</button>
+                        </form>
+                        <div id="quizResult" class="mt-4 alert d-none" role="alert"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 未来网络安全趋势 -->
+<section id="future-trends" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>未来网络安全趋势与挑战</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-cpu me-2"></i>人工智能驱动的攻击与防御</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>攻击者利用AI生成更逼真的钓鱼邮件、深度伪造音视频进行诈骗；防御方则借助AI快速识别异常流量、自动响应威胁。AI对抗将成为未来攻防的核心。</p>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-quantum me-2"></i>量子计算对加密的冲击</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>量子计算机可能破解目前主流的RSA、ECC等公钥加密算法。全球正在加速研发“后量子密码学”标准，以应对未来的密码体系变革。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-diagram-3 me-2"></i>供应链攻击频发</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>攻击者通过入侵软件供应商、开源库或硬件组件，间接攻击下游目标。未来需要建立更严格的软件物料清单（SBOM）和第三方安全评估机制。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-house-door me-2"></i>物联网与车联网安全</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>数十亿台IoT设备、智能汽车成为新攻击面。固件漏洞、弱口令、数据泄露风险巨大，亟需轻量级加密和自动化安全更新机制。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <div class="alert alert-info">
+                <i class="bi bi-eye-fill me-2"></i> 面对未来威胁，持续学习、主动防御、全民参与是维护网络安全的基石。
+            </div>
+        </div>
+    </div>
+    </section>
 
     <!-- 网络安全案例 -->
     <section id="cases" class="section protection-section">
@@ -1059,7 +1213,7 @@
                             </h2>
                             <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    1. 网络违法犯罪举报：登录<a href="https://www.cyberpolice.cn" target="_blank">网络违法犯罪举报网站</a>或拨打110；2. 不良信息举报：登录<a href="https://www.12377.cn" target="_blank">12377网络违法和不良信息举报中心</a>；3. 电信诈骗举报：拨打96110反诈专线；4. 个人信息保护投诉：拨打12315或向网信部门投诉。
+                                    1. 网络违法犯罪举报：登录<a href="https://cyberpolice.mps.gov.cn/#/" target="_blank">网络违法犯罪举报网站</a>或拨打110；2. 不良信息举报：登录<a href="https://www.12377.cn" target="_blank">12377网络违法和不良信息举报中心</a>；3. 电信诈骗举报：拨打96110反诈专线；4. 个人信息保护投诉：拨打12315或向网信部门投诉。
                                 </div>
                             </div>
                         </div>
@@ -1107,7 +1261,7 @@
                 <div class="col-md-6 mb-4">
                     <h5>官方举报/咨询渠道</h5>
                     <ul class="list-unstyled">
-                        <li><a href="https://www.cyberpolice.cn" target="_blank">网络违法犯罪举报网站</a></li>
+                        <li><a href="https://cyberpolice.mps.gov.cn/#/" target="_blank">网络违法犯罪举报网站</a></li>
                         <li><a href="https://www.12377.cn" target="_blank">12377不良信息举报中心</a></li>
                         <li><a href="https://www.mps.gov.cn" target="_blank">公安部网络安全保卫局</a></li>
                     </ul>
@@ -1201,6 +1355,39 @@
                     }
                 }
             });
+        });
+    </script>
+
+    <!-- 网络安全自测功能 -->
+    <script>
+        // 确保DOM加载完成后再绑定事件
+        document.addEventListener('DOMContentLoaded', function() {
+            var submitBtn = document.getElementById('submitQuiz');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    let total = 0;
+                    for (let i = 1; i <= 5; i++) {
+                        let selected = document.querySelector(`input[name='q${i}']:checked`);
+                        if (selected) {
+                            total += parseInt(selected.value);
+                        }
+                    }
+                    let resultDiv = document.getElementById('quizResult');
+                    let message = '';
+                    if (total === 100) {
+                        message = '🎉 完美！您具备优秀的网络安全意识，请继续保持并分享给身边人。';
+                        resultDiv.className = 'mt-4 alert alert-success';
+                    } else if (total >= 60) {
+                        message = '👍 不错，但仍有提升空间。建议加强弱密码、公共WiFi使用等方面的警惕性。';
+                        resultDiv.className = 'mt-4 alert alert-warning';
+                    } else {
+                        message = '⚠️ 您的网络安全意识较为薄弱，请仔细阅读本网站各板块内容，提升防护能力！';
+                        resultDiv.className = 'mt-4 alert alert-danger';
+                    }
+                    resultDiv.innerHTML = `<strong>得分：${total}分</strong><br>${message}`;
+                    resultDiv.classList.remove('d-none');
+                });
+            }
         });
     </script>
 </body>
